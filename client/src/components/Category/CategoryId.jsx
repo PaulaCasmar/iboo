@@ -23,26 +23,7 @@ const CategoryId = () => {
     getCategories();
   }, []);
 
-  const deleteCategories = async (e) => {
-    e.preventDefault();
-    let option = window.confirm("¿Seguro que quieres borrar la categoria?");
-    if (option == true) {
-      try {
-        const response = await axios.delete(
-          `http://localhost:5000/api/categories/${categoryId}`
-        );
-        console.log(response);
-
-        setTimeout(() => {
-          window.location.href = "/categories";
-        }, 2000);
-      } catch (error) {
-        console.log(error.response);
-      }
-    }
-  };
-
-  return (
+   return (
     <div>
       <p className="titleP">{categories.title}</p>
       <div className="products">

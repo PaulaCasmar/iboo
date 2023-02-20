@@ -15,25 +15,7 @@ const Category = () => {
     getCategory();
   }, []);
 
-  const deleteCategory = (categoria) => {
-    localStorage.setItem("cat", categoria);
-    // e.preventDefault()
-    let option = window.confirm("¿Seguro que quieres borrar esta categoria?");
-    let categoria2 = localStorage.getItem("cat");
-    if (option == true) {
-      try {
-        const response = axios.delete(
-          `http://localhost:5000/api/category/${categoria2}`
-        );
-        console.log(response);
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
-      } catch (error) {
-        console.log(error.response);
-      }
-    }
-  };
+
 
   return (
     <div>

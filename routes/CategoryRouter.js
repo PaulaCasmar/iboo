@@ -90,39 +90,4 @@ CategoryRouter.get("/category/:id", async (req, res)=>{
     }
 })
 
-CategoryRouter.put("/category/:id", async (req, res)=> {
-    const {id} = req.params
-    const {title} = req.body
-    try {
-        await Category.findByIdAndUpdate(id, {title})
-        return res.status(200).json({
-            success: true, 
-            message: "Category updated successfully"
-        })
-    } catch (error) {
-        return res.status(500).json({
-            success: false,
-            message: error.message
-        })
-    }
-})
-
-CategoryRouter.delete("/category/:id", async (req, res)=>{
-    const {id} = req.params
-try {
-    await Category.findByIdAndDelete(id)
-    return res.status(200).json({
-        success: true,
-        message: "Category deleted successfully"
-    })
-    
-} catch (error) {
-    return res.status(500).json({
-        success: false,
-        message: error.message
-    })
-}
-})
-
-
 module.exports = CategoryRouter;
